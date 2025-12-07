@@ -40,7 +40,7 @@
         
         .hero-section {
             background: linear-gradient(rgba(10, 36, 99, 0.85), rgba(10, 36, 99, 0.9)), 
-                        url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+                        url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=2070&q=80');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -235,37 +235,67 @@
     <!-- Hero Section -->
     <section id="inicio" class="hero-section text-white py-20 md:py-32">
         <div class="container mx-auto px-4">
-            <div class="max-w-3xl fade-in">
-                <p class="text-gold-300 font-semibold uppercase tracking-wider mb-4">Educación Integral • Innovación • Valores</p>
-                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-                    Formando Líderes del Mañana en <span class="text-yellow-300">Villa María del Triunfo</span>
-                </h1>
-                <p class="text-xl mb-8 text-gray-200">
-                    Una institución educativa que combina excelencia académica con formación en valores, preparando estudiantes seguros, creativos y comprometidos con su comunidad.
-                </p>
-                <div class="flex flex-wrap gap-4">
-                    <a href="#admisiones" class="px-8 py-3 btn-gold rounded-full font-semibold text-lg">Solicitar Información</a>
-                    <a href="#nosotros" class="px-8 py-3 btn-outline-gold rounded-full font-semibold text-lg">Conocer Más</a>
-                </div>
-            </div>
+            <!-- NUEVO: grid 2 columnas, izquierda texto + stats, derecha imagen -->
+            <div class="grid lg:grid-cols-2 gap-10 items-center">
+                <!-- Texto + botones + stats -->
+                <div class="max-w-3xl fade-in">
+                    <p class="text-yellow-300 font-semibold uppercase tracking-wider mb-4">
+                        Educación Integral • Innovación • Valores
+                    </p>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+                        Formando Líderes del Mañana en <span class="text-yellow-300">Villa María del Triunfo</span>
+                    </h1>
+                    <p class="text-xl mb-8 text-gray-200">
+                        Una institución educativa que combina excelencia académica con formación en valores, preparando estudiantes seguros, creativos y comprometidos con su comunidad.
+                    </p>
+                    <div class="flex flex-wrap gap-4 mb-10">
+                        <a href="#admisiones" class="px-8 py-3 btn-gold rounded-full font-semibold text-lg">Solicitar Información</a>
+                        <a href="#nosotros" class="px-8 py-3 btn-outline-gold rounded-full font-semibold text-lg">Conocer Más</a>
+                    </div>
 
-            <!-- Stats -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 max-w-4xl">
-                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center">
-                    <div class="text-3xl font-bold stats-counter" data-target="98">0</div>
-                    <p class="text-sm">% Egresados Universitarios</p>
+                    <!-- Stats dentro de la columna izquierda -->
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-xl">
+                        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center">
+                            <div class="text-3xl font-bold stats-counter" data-target="98">0</div>
+                            <p class="text-sm">% Egresados Universitarios</p>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center">
+                            <div class="text-3xl font-bold stats-counter" data-target="25">0</div>
+                            <p class="text-sm">Años de Experiencia</p>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center">
+                            <div class="text-3xl font-bold stats-counter" data-target="15">0</div>
+                            <p class="text-sm">Talleres Extracurriculares</p>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center">
+                            <div class="text-3xl font-bold stats-counter" data-target="100">0</div>
+                            <p class="text-sm">% Profesores Comprometidos</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center">
-                    <div class="text-3xl font-bold stats-counter" data-target="25">0</div>
-                    <p class="text-sm">Años de Experiencia</p>
-                </div>
-                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center">
-                    <div class="text-3xl font-bold stats-counter" data-target="15">0</div>
-                    <p class="text-sm">Talleres Extracurriculares</p>
-                </div>
-                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center">
-                    <div class="text-3xl font-bold stats-counter" data-target="100">0</div>
-                    <p class="text-sm">% Profesores Certificados</p>
+
+                <!-- Imagen al costado de los porcentajes -->
+                <div class="fade-in">
+                    <div class="relative rounded-3xl overflow-hidden shadow-2xl border border-white/10">
+                        <!-- Cambia esta URL por una foto real del colegio -->
+                        <img src="https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?auto=format&fit=crop&w=1000&q=80"
+                             alt="Estudiantes del Colegio Hiram Bingham en Villa María del Triunfo"
+                             class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-blue-900/70 via-transparent"></div>
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <p class="text-sm uppercase tracking-widest text-yellow-300 mb-1">
+                                Educación Integral
+                            </p>
+                            <h3 class="text-xl font-bold">Ambiente seguro y motivador</h3>
+                            <p class="text-sm text-gray-200">
+                                Aulas equipadas, docentes cercanos y una comunidad educativa que acompaña cada etapa.
+                            </p>
+                        </div>
+                        <div class="absolute top-4 right-4 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full text-sm flex items-center space-x-2">
+                            <i class="fas fa-shield-alt text-yellow-300"></i>
+                            <span>Formación con valores</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -378,10 +408,13 @@
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
                 <h2 class="section-title text-3xl md:text-4xl font-bold text-blue-900 inline-block">Niveles Educativos</h2>
-                <p class="text-gray-600 max-w-3xl mx-auto mt-4">Acompañamos a nuestros estudiantes desde los primeros años hasta su preparación para la educación superior.</p>
+                <p class="text-gray-600 max-w-3xl mx-auto mt-4">
+                    Acompañamos a nuestros estudiantes desde los primeros años hasta el final de la primaria, promoviendo su desarrollo integral.
+                </p>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-8">
+            <!-- CAMBIO: solo 2 columnas, Inicial y Primaria -->
+            <div class="grid md:grid-cols-2 gap-8">
                 <!-- Inicial -->
                 <div class="level-card bg-white rounded-2xl shadow-lg overflow-hidden fade-in">
                     <div class="bg-gradient-to-r from-blue-700 to-blue-900 p-6 text-white">
@@ -459,45 +492,6 @@
                         </a>
                     </div>
                 </div>
-
-                <!-- Secundaria -->
-                <div class="level-card bg-white rounded-2xl shadow-lg overflow-hidden fade-in">
-                    <div class="bg-gradient-to-r from-blue-900 to-blue-800 p-6 text-white">
-                        <div class="flex justify-between items-center">
-                            <h3 class="text-2xl font-bold">Secundaria</h3>
-                            <div class="level-icon text-3xl">
-                                <i class="fas fa-graduation-cap"></i>
-                            </div>
-                        </div>
-                        <p class="text-blue-200">1.º a 5.º de secundaria</p>
-                    </div>
-                    <div class="p-6">
-                        <p class="text-gray-700 mb-4">
-                            Acompañamos a los estudiantes en la construcción de su proyecto de vida, reforzando competencias científicas, humanísticas y digitales para su futuro.
-                        </p>
-                        <ul class="space-y-2 text-gray-600 mb-6">
-                            <li class="flex items-center">
-                                <i class="fas fa-check text-green-500 mr-2"></i>
-                                Preparación preuniversitaria y orientación vocacional
-                            </li>
-                            <li class="flex items-center">
-                                <i class="fas fa-check text-green-500 mr-2"></i>
-                                Proyectos de investigación e innovación
-                            </li>
-                            <li class="flex items-center">
-                                <i class="fas fa-check text-green-500 mr-2"></i>
-                                Desarrollo de liderazgo y habilidades blandas
-                            </li>
-                            <li class="flex items-center">
-                                <i class="fas fa-check text-green-500 mr-2"></i>
-                                Programas de intercambio cultural (virtual)
-                            </li>
-                        </ul>
-                        <a href="#contacto" class="block text-center py-2 px-4 bg-blue-100 text-blue-900 font-medium rounded-lg hover:bg-blue-200 transition">
-                            Más información
-                        </a>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -507,7 +501,7 @@
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
                 <h2 class="section-title text-3xl md:text-4xl font-bold text-blue-900 inline-block">Vida en el Campus</h2>
-                <p class="text-gray-600 max-w-3xl mx-auto mt-4">Más allá de las aulas: un espacio para el desarrollo integral de nuestros estudiantes.</p>
+            <p class="text-gray-600 max-w-3xl mx-auto mt-4">Más allá de las aulas: un espacio para el desarrollo integral de nuestros estudiantes.</p>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8 mb-12">
@@ -546,33 +540,42 @@
             <div class="fade-in">
                 <h3 class="text-2xl font-bold text-blue-900 mb-6 text-center">Galería de Nuestras Actividades</h3>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <div class="rounded-xl overflow-hidden shadow-md">
-                        <div class="h-48 bg-gradient-to-r from-blue-400 to-blue-600 flex items-center justify-center text-white">
-                            <i class="fas fa-graduation-cap text-4xl"></i>
+                    <!-- IMPORTANTE: aquí ya van URLs de imágenes. Cámbialas luego por tus fotos reales -->
+                    <div class="rounded-xl overflow-hidden shadow-md bg-white">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=800&q=80"
+                                 alt="Ceremonia de Graduación - Colegio Hiram Bingham"
+                                 class="w-full h-full object-cover">
                         </div>
                         <div class="p-4 bg-white">
                             <p class="font-medium text-center">Ceremonia de Graduación</p>
                         </div>
                     </div>
-                    <div class="rounded-xl overflow-hidden shadow-md">
-                        <div class="h-48 bg-gradient-to-r from-green-400 to-green-600 flex items-center justify-center text-white">
-                            <i class="fas fa-flask text-4xl"></i>
+                    <div class="rounded-xl overflow-hidden shadow-md bg-white">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1581090700227-1e27b71cd9b0?auto=format&fit=crop&w=800&q=80"
+                                 alt="Feria de Ciencias - Colegio Hiram Bingham"
+                                 class="w-full h-full object-cover">
                         </div>
                         <div class="p-4 bg-white">
                             <p class="font-medium text-center">Feria de Ciencias</p>
                         </div>
                     </div>
-                    <div class="rounded-xl overflow-hidden shadow-md">
-                        <div class="h-48 bg-gradient-to-r from-yellow-400 to-yellow-600 flex items-center justify-center text-white">
-                            <i class="fas fa-music text-4xl"></i>
+                    <div class="rounded-xl overflow-hidden shadow-md bg-white">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1512427691650-1e0c2f9a81b3?auto=format&fit=crop&w=800&q=80"
+                                 alt="Festival de Talentos - Colegio Hiram Bingham"
+                                 class="w-full h-full object-cover">
                         </div>
                         <div class="p-4 bg-white">
                             <p class="font-medium text-center">Festival de Talentos</p>
                         </div>
                     </div>
-                    <div class="rounded-xl overflow-hidden shadow-md">
-                        <div class="h-48 bg-gradient-to-r from-red-400 to-red-600 flex items-center justify-center text-white">
-                            <i class="fas fa-medal text-4xl"></i>
+                    <div class="rounded-xl overflow-hidden shadow-md bg-white">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1599059813504-4791a50133c2?auto=format&fit=crop&w=800&q=80"
+                                 alt="Competencias Deportivas - Colegio Hiram Bingham"
+                                 class="w-full h-full object-cover">
                         </div>
                         <div class="p-4 bg-white">
                             <p class="font-medium text-center">Competencias Deportivas</p>
@@ -666,7 +669,6 @@
                                     <option>Seleccione un nivel</option>
                                     <option>Inicial (3-5 años)</option>
                                     <option>Primaria (1°-6° grado)</option>
-                                    <option>Secundaria (1°-5° año)</option>
                                 </select>
                             </div>
                             
@@ -731,7 +733,7 @@
                         </div>
                     </div>
                     <p class="text-gray-700 italic">
-                        "La formación que recibí en el Hiram Bingham me dio las bases para ingresar a la universidad y enfrentar los retos académicos. Los proyectos de investigación en secundaria fueron clave para mi vocación."
+                        "La formación que recibí en el Hiram Bingham me dio las bases para ingresar a la universidad y enfrentar los retos académicos. Los proyectos trabajados en primaria fueron clave para mi vocación."
                     </p>
                     <div class="flex text-yellow-400 mt-4">
                         <i class="fas fa-star"></i>
@@ -749,7 +751,7 @@
                         </div>
                         <div>
                             <h4 class="font-bold text-blue-900">Carlos Rodríguez</h4>
-                            <p class="text-sm text-gray-500">Padre de familia - Secundaria</p>
+                            <p class="text-sm text-gray-500">Padre de familia</p>
                         </div>
                     </div>
                     <p class="text-gray-700 italic">
@@ -958,7 +960,6 @@
                     <ul class="space-y-2">
                         <li><a href="#niveles" class="text-blue-200 hover:text-white transition">Educación Inicial</a></li>
                         <li><a href="#niveles" class="text-blue-200 hover:text-white transition">Educación Primaria</a></li>
-                        <li><a href="#niveles" class="text-blue-200 hover:text-white transition">Educación Secundaria</a></li>
                     </ul>
                 </div>
                 
