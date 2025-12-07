@@ -1,392 +1,1124 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <title>IEP Hiram Bingham – Excelencia y Valores</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <!-- Tailwind CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <script>
-    // Configuración ligera de Tailwind (opcional)
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            hibPrimary: "#0f172a",   // azul profundo
-            hibAccent: "#fbbf24",    // dorado
-            hibSoft: "#e5e7eb"       // gris suave
-          }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colegio Hiram Bingham VMT - Excelencia Educativa con Valores</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --primary-blue: #0A2463;
+            --accent-gold: #D4AF37;
+            --secondary-blue: #3E78B2;
+            --light-gray: #F8F9FA;
+            --dark-gray: #2D3748;
         }
-      }
-    };
-  </script>
-
-  <style>
-    /* Pequeña animación suave */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(10px);
-      transition: all 0.7s ease;
-    }
-    .fade-in.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  </style>
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--dark-gray);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(10, 36, 99, 0.85), rgba(10, 36, 99, 0.9)), 
+                        url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .section-title {
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 40px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent-gold);
+        }
+        
+        .section-title.left::after {
+            left: 0;
+            transform: none;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+            border-bottom: 4px solid transparent;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            border-bottom: 4px solid var(--accent-gold);
+        }
+        
+        .testimonial-card {
+            background: linear-gradient(135deg, var(--light-gray) 0%, #ffffff 100%);
+            border-left: 4px solid var(--accent-gold);
+        }
+        
+        .floating-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .floating-button:hover {
+            transform: scale(1.1);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-gold);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .level-card {
+            transition: all 0.4s ease;
+            overflow: hidden;
+        }
+        
+        .level-card:hover .level-icon {
+            transform: scale(1.1);
+            color: var(--accent-gold);
+        }
+        
+        .stats-counter {
+            transition: all 1.5s ease;
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .btn-gold {
+            background-color: var(--accent-gold);
+            color: var(--primary-blue);
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-gold:hover {
+            background-color: #b8941f;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+        
+        .btn-outline-gold {
+            border: 2px solid var(--accent-gold);
+            color: var(--accent-gold);
+            background: transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline-gold:hover {
+            background-color: var(--accent-gold);
+            color: white;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+    </style>
 </head>
-<body class="bg-slate-50 text-slate-800">
+<body class="bg-gray-50">
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/51999999999?text=Hola,%20me%20interesa%20información%20sobre%20el%20Colegio%20Hiram%20Bingham" 
+       target="_blank" 
+       class="floating-button bg-green-500 text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
-  <!-- NAVBAR -->
-  <header class="fixed inset-x-0 top-0 z-30 bg-white/80 backdrop-blur border-b border-slate-200">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
-      <div class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-full bg-hibPrimary text-white flex items-center justify-center text-lg font-bold shadow">
-          HB
-        </div>
-        <div>
-          <h1 class="text-sm font-semibold tracking-wide text-hibPrimary uppercase">
-            IEP Hiram Bingham
-          </h1>
-          <p class="text-xs text-slate-500">Formando líderes con visión global</p>
-        </div>
-      </div>
+    <!-- Header & Navigation -->
+    <header class="sticky top-0 z-50 bg-white shadow-md transition-all duration-300">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-12 h-12 rounded-full bg-gradient-to-r from-blue-900 to-blue-700 flex items-center justify-center text-white text-xl font-bold">
+                        HB
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold text-blue-900">Colegio Hiram Bingham</h1>
+                        <p class="text-xs text-gray-600">Villa María del Triunfo - Lima</p>
+                    </div>
+                </div>
 
-      <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600">
-        <a href="#inicio" class="hover:text-hibPrimary transition">Inicio</a>
-        <a href="#nosotros" class="hover:text-hibPrimary transition">Nosotros</a>
-        <a href="#niveles" class="hover:text-hibPrimary transition">Niveles</a>
-        <a href="#valores" class="hover:text-hibPrimary transition">Valores</a>
-        <a href="#contacto" class="px-4 py-1.5 rounded-full bg-hibPrimary text-white hover:bg-slate-900 transition">
-          Contáctanos
-        </a>
-      </nav>
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex items-center space-x-8">
+                    <a href="#inicio" class="nav-link font-medium text-gray-700 hover:text-blue-900">Inicio</a>
+                    <a href="#nosotros" class="nav-link font-medium text-gray-700 hover:text-blue-900">Nosotros</a>
+                    <a href="#niveles" class="nav-link font-medium text-gray-700 hover:text-blue-900">Niveles</a>
+                    <a href="#campus" class="nav-link font-medium text-gray-700 hover:text-blue-900">Vida en el Campus</a>
+                    <a href="#admisiones" class="nav-link font-medium text-gray-700 hover:text-blue-900">Admisiones</a>
+                    <a href="#testimonios" class="nav-link font-medium text-gray-700 hover:text-blue-900">Testimonios</a>
+                    <a href="#contacto" class="px-5 py-2 btn-gold rounded-full font-medium">Contacto</a>
+                </nav>
 
-      <!-- Botón móvil -->
-      <button id="btnMenu" class="md:hidden inline-flex items-center justify-center p-2 rounded-lg border border-slate-300 text-slate-600 hover:bg-slate-100">
-        <span class="sr-only">Abrir menú</span>
-        ☰
-      </button>
-    </div>
-
-    <!-- Menú móvil -->
-    <div id="mobileMenu" class="md:hidden hidden border-t border-slate-200 bg-white">
-      <nav class="px-4 py-3 flex flex-col gap-2 text-sm font-medium text-slate-700">
-        <a href="#inicio" class="py-1 hover:text-hibPrimary">Inicio</a>
-        <a href="#nosotros" class="py-1 hover:text-hibPrimary">Nosotros</a>
-        <a href="#niveles" class="py-1 hover:text-hibPrimary">Niveles</a>
-        <a href="#valores" class="py-1 hover:text-hibPrimary">Valores</a>
-        <a href="#contacto" class="mt-2 inline-flex justify-center px-4 py-2 rounded-full bg-hibPrimary text-white hover:bg-slate-900">
-          Contáctanos
-        </a>
-      </nav>
-    </div>
-  </header>
-
-  <!-- HERO -->
-  <section id="inicio" class="pt-28 pb-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-10 items-center">
-      <div class="fade-in" id="heroText">
-        <p class="text-hibAccent font-semibold uppercase tracking-[0.2em] text-xs mb-4">
-          Educación integral • Innovación • Valores
-        </p>
-        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight mb-4">
-          IEP Hiram Bingham<br>
-          <span class="text-hibAccent">Un lugar donde tus sueños crecen.</span>
-        </h2>
-        <p class="text-sm sm:text-base text-slate-200 mb-6">
-          Somos una institución educativa que combina la excelencia académica con el
-          acompañamiento humano, formando estudiantes seguros, creativos y comprometidos
-          con su comunidad y el mundo.
-        </p>
-        <div class="flex flex-wrap gap-3">
-          <a href="#contacto" class="px-6 py-2.5 rounded-full bg-hibAccent text-slate-900 font-semibold text-sm shadow hover:bg-amber-300 transition">
-            Agendar una visita
-          </a>
-          <a href="#nosotros" class="px-6 py-2.5 rounded-full border border-slate-500 text-sm text-slate-100 hover:bg-white/10 transition">
-            Conocer más
-          </a>
-        </div>
-      </div>
-
-      <div class="fade-in" id="heroCard">
-        <div class="relative bg-white/10 border border-white/20 rounded-3xl p-6 sm:p-7 shadow-2xl backdrop-blur">
-          <div class="flex justify-between items-center mb-4">
-            <span class="text-xs font-semibold uppercase tracking-wide text-hibAccent">
-              Vida escolar
-            </span>
-            <span class="text-[11px] text-slate-200">
-              Inspirando cada día ✨
-            </span>
-          </div>
-
-          <div class="grid grid-cols-2 gap-4 text-xs sm:text-sm">
-            <div class="bg-slate-900/40 rounded-2xl p-4 flex flex-col justify-between">
-              <p class="font-semibold mb-1">Ambiente seguro</p>
-              <p class="text-slate-300 text-[11px]">
-                Infraestructura acogedora, con acompañamiento permanente a cada estudiante.
-              </p>
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuButton" class="lg:hidden text-gray-700 text-2xl">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
-            <div class="bg-slate-900/40 rounded-2xl p-4 flex flex-col justify-between">
-              <p class="font-semibold mb-1">Metodología activa</p>
-              <p class="text-slate-300 text-[11px]">
-                Aprendizaje basado en proyectos, trabajo colaborativo y uso de tecnología.
-              </p>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div id="mobileMenu" class="lg:hidden hidden bg-white border-t">
+            <div class="flex flex-col space-y-4 p-6">
+                <a href="#inicio" class="font-medium text-gray-700 hover:text-blue-900 py-2">Inicio</a>
+                <a href="#nosotros" class="font-medium text-gray-700 hover:text-blue-900 py-2">Nosotros</a>
+                <a href="#niveles" class="font-medium text-gray-700 hover:text-blue-900 py-2">Niveles</a>
+                <a href="#campus" class="font-medium text-gray-700 hover:text-blue-900 py-2">Vida en el Campus</a>
+                <a href="#admisiones" class="font-medium text-gray-700 hover:text-blue-900 py-2">Admisiones</a>
+                <a href="#testimonios" class="font-medium text-gray-700 hover:text-blue-900 py-2">Testimonios</a>
+                <a href="#contacto" class="px-5 py-3 btn-gold rounded-full font-medium text-center mt-4">Contacto</a>
             </div>
-            <div class="bg-slate-900/40 rounded-2xl p-4 flex flex-col justify-between">
-              <p class="font-semibold mb-1">Inglés & TIC</p>
-              <p class="text-slate-300 text-[11px]">
-                Idiomas, herramientas digitales y pensamiento crítico para un mundo global.
-              </p>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero-section text-white py-20 md:py-32">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl fade-in">
+                <p class="text-gold-300 font-semibold uppercase tracking-wider mb-4">Educación Integral • Innovación • Valores</p>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+                    Formando Líderes del Mañana en <span class="text-yellow-300">Villa María del Triunfo</span>
+                </h1>
+                <p class="text-xl mb-8 text-gray-200">
+                    Una institución educativa que combina excelencia académica con formación en valores, preparando estudiantes seguros, creativos y comprometidos con su comunidad.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#admisiones" class="px-8 py-3 btn-gold rounded-full font-semibold text-lg">Solicitar Información</a>
+                    <a href="#nosotros" class="px-8 py-3 btn-outline-gold rounded-full font-semibold text-lg">Conocer Más</a>
+                </div>
             </div>
-            <div class="bg-slate-900/40 rounded-2xl p-4 flex flex-col justify-between">
-              <p class="font-semibold mb-1">Arte & deporte</p>
-              <p class="text-slate-300 text-[11px]">
-                Talleres que fortalecen la creatividad, disciplina y trabajo en equipo.
-              </p>
+
+            <!-- Stats -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 max-w-4xl">
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center">
+                    <div class="text-3xl font-bold stats-counter" data-target="98">0</div>
+                    <p class="text-sm">% Egresados Universitarios</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center">
+                    <div class="text-3xl font-bold stats-counter" data-target="25">0</div>
+                    <p class="text-sm">Años de Experiencia</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center">
+                    <div class="text-3xl font-bold stats-counter" data-target="15">0</div>
+                    <p class="text-sm">Talleres Extracurriculares</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center">
+                    <div class="text-3xl font-bold stats-counter" data-target="100">0</div>
+                    <p class="text-sm">% Profesores Certificados</p>
+                </div>
             </div>
-          </div>
-
-          <div class="mt-5 border-t border-white/10 pt-4 flex items-center justify-between text-[11px] text-slate-200">
-            <span>“Educar es acompañar el corazón y la mente.”</span>
-            <span class="px-2 py-1 rounded-full bg-hibAccent text-slate-900 font-semibold">
-              IEP HB
-            </span>
-          </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- NOSOTROS -->
-  <section id="nosotros" class="py-16 bg-white">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 fade-in">
-      <h3 class="text-2xl sm:text-3xl font-bold text-hibPrimary mb-4">
-        Sobre la IEP Hiram Bingham
-      </h3>
-      <p class="text-slate-600 text-sm sm:text-base leading-relaxed mb-4">
-        La <strong>IEP Hiram Bingham</strong> es una institución educativa que
-        apuesta por una formación integral, donde cada estudiante es protagonista
-        de su propio aprendizaje. Combinamos una sólida base académica con el
-        desarrollo emocional, social y espiritual, promoviendo valores como el
-        respeto, la responsabilidad y la empatía.
-      </p>
-      <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
-        Trabajamos con docentes comprometidos y en constante actualización, que
-        integran recursos digitales, experiencias significativas y metodologías
-        activas para que nuestros estudiantes descubran su vocación y talento,
-        preparándose para los retos del siglo XXI.
-      </p>
-    </div>
-  </section>
+    <!-- Nosotros Section -->
+    <section id="nosotros" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="section-title text-3xl md:text-4xl font-bold text-blue-900 inline-block">Sobre el Colegio Hiram Bingham</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto mt-4">Una institución con más de 25 años formando ciudadanos responsables y competentes en Villa María del Triunfo.</p>
+            </div>
 
-  <!-- NIVELES EDUCATIVOS -->
-  <section id="niveles" class="py-16 bg-slate-50">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="fade-in mb-8">
-        <h3 class="text-2xl sm:text-3xl font-bold text-hibPrimary mb-2">
-          Niveles educativos
-        </h3>
-        <p class="text-slate-600 text-sm sm:text-base">
-          Acompañamos a nuestros estudiantes desde los primeros años hasta la
-          culminación de su formación escolar.
-        </p>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-6">
-        <!-- Inicial -->
-        <article class="fade-in bg-white rounded-2xl shadow-sm border border-slate-100 p-5 flex flex-col">
-          <h4 class="text-lg font-semibold text-hibPrimary mb-1">
-            Inicial
-          </h4>
-          <p class="text-xs text-slate-500 mb-3">
-            3, 4 y 5 años
-          </p>
-          <p class="text-sm text-slate-600 flex-1">
-            Un espacio cálido y seguro donde los niños exploran, juegan y
-            desarrollan habilidades socioemocionales fundamentales.
-          </p>
-          <ul class="mt-3 text-xs text-slate-500 list-disc list-inside">
-            <li>Psicomotricidad y arte</li>
-            <li>Estímulo del lenguaje</li>
-            <li>Juego libre y guiado</li>
-          </ul>
-        </article>
-
-        <!-- Primaria -->
-        <article class="fade-in bg-white rounded-2xl shadow-sm border border-slate-100 p-5 flex flex-col">
-          <h4 class="text-lg font-semibold text-hibPrimary mb-1">
-            Primaria
-          </h4>
-          <p class="text-xs text-slate-500 mb-3">
-            1.º a 6.º grado
-          </p>
-          <p class="text-sm text-slate-600 flex-1">
-            Fundamentamos el pensamiento lógico, la comprensión lectora y la
-            creatividad, con proyectos que conectan la escuela con la realidad.
-          </p>
-          <ul class="mt-3 text-xs text-slate-500 list-disc list-inside">
-            <li>Lectura comprensiva</li>
-            <li>Matemática aplicada</li>
-            <li>Inglés y uso responsable de TIC</li>
-          </ul>
-        </article>
-
-        <!-- Secundaria -->
-        <article class="fade-in bg-white rounded-2xl shadow-sm border border-slate-100 p-5 flex flex-col">
-          <h4 class="text-lg font-semibold text-hibPrimary mb-1">
-            Secundaria
-          </h4>
-          <p class="text-xs text-slate-500 mb-3">
-            1.º a 5.º de secundaria
-          </p>
-          <p class="text-sm text-slate-600 flex-1">
-            Acompañamos a los estudiantes en la construcción de su proyecto de
-            vida, reforzando competencias científicas, humanísticas y digitales.
-          </p>
-          <ul class="mt-3 text-xs text-slate-500 list-disc list-inside">
-            <li>Preparación preuniversitaria</li>
-            <li>Proyectos de investigación</li>
-            <li>Orientación vocacional</li>
-          </ul>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- VALORES -->
-  <section id="valores" class="py-16 bg-white">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="fade-in mb-8 text-center">
-        <h3 class="text-2xl sm:text-3xl font-bold text-hibPrimary mb-2">
-          Nuestros valores
-        </h3>
-        <p class="text-slate-600 text-sm sm:text-base max-w-2xl mx-auto">
-          La elegancia de una institución no solo está en su infraestructura,
-          sino en la calidad humana que se vive día a día.
-        </p>
-      </div>
-
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 text-sm">
-        <div class="fade-in bg-slate-50 border border-slate-100 rounded-2xl p-4">
-          <p class="text-xs font-semibold text-hibAccent uppercase mb-1">Respeto</p>
-          <p class="text-slate-600">
-            Valoramos la diversidad, la escucha y el buen trato entre estudiantes,
-            familias y docentes.
-          </p>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="fade-in">
+                    <h3 class="text-2xl font-bold text-blue-900 mb-4">Nuestra Historia y Misión</h3>
+                    <p class="text-gray-700 mb-4">
+                        Fundado en 1998, el Colegio Hiram Bingham se ha consolidado como una de las instituciones educativas más respetadas de Villa María del Triunfo, combinando una sólida formación académica con el desarrollo integral de valores humanos.
+                    </p>
+                    <p class="text-gray-700 mb-6">
+                        Nuestra misión es formar personas íntegras, competentes y comprometidas con el desarrollo de su comunidad, capaces de enfrentar los desafíos del siglo XXI con responsabilidad y creatividad.
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-lg mr-4">
+                                <i class="fas fa-graduation-cap text-blue-900 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-blue-900">Excelencia Académica</h4>
+                                <p class="text-gray-600 text-sm">Programas educativos actualizados que superan los estándares del MINEDU.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-lg mr-4">
+                                <i class="fas fa-heart text-blue-900 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-blue-900">Formación en Valores</h4>
+                                <p class="text-gray-600 text-sm">Educamos en el respeto, responsabilidad, solidaridad y honestidad.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="fade-in">
+                    <div class="bg-gradient-to-br from-blue-50 to-gray-100 rounded-2xl p-1 shadow-xl">
+                        <div class="bg-white rounded-xl p-6">
+                            <h4 class="text-xl font-bold text-blue-900 mb-4">Nuestros Pilares Educativos</h4>
+                            <div class="space-y-4">
+                                <div class="flex items-center justify-between border-b pb-3">
+                                    <span class="font-medium">Enfoque Personalizado</span>
+                                    <div class="flex text-yellow-400">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between border-b pb-3">
+                                    <span class="font-medium">Tecnología Educativa</span>
+                                    <div class="flex text-yellow-400">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between border-b pb-3">
+                                    <span class="font-medium">Desarrollo Emocional</span>
+                                    <div class="flex text-yellow-400">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between pb-2">
+                                    <span class="font-medium">Preparación Global</span>
+                                    <div class="flex text-yellow-400">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-8 p-4 bg-blue-50 rounded-lg">
+                                <p class="text-blue-900 font-medium text-center">
+                                    <i class="fas fa-quote-left text-yellow-500 mr-2"></i>
+                                    Educar no es dar carrera para vivir, sino templar el alma para las dificultades de la vida.
+                                    <i class="fas fa-quote-right text-yellow-500 ml-2"></i>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="fade-in bg-slate-50 border border-slate-100 rounded-2xl p-4">
-          <p class="text-xs font-semibold text-hibAccent uppercase mb-1">Responsabilidad</p>
-          <p class="text-slate-600">
-            Fomentamos la autonomía, la puntualidad y el compromiso con el propio
-            aprendizaje.
-          </p>
-        </div>
-        <div class="fade-in bg-slate-50 border border-slate-100 rounded-2xl p-4">
-          <p class="text-xs font-semibold text-hibAccent uppercase mb-1">Solidaridad</p>
-          <p class="text-slate-600">
-            Promovemos acciones de ayuda y cuidado hacia los demás y el entorno.
-          </p>
-        </div>
-        <div class="fade-in bg-slate-50 border border-slate-100 rounded-2xl p-4">
-          <p class="text-xs font-semibold text-hibAccent uppercase mb-1">Excelencia</p>
-          <p class="text-slate-600">
-            Buscamos siempre mejorar, innovar y ofrecer una educación de alto nivel.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CONTACTO -->
-  <section id="contacto" class="py-16 bg-slate-900 text-white">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-10 items-start">
-      <div class="fade-in">
-        <h3 class="text-2xl sm:text-3xl font-bold mb-3">
-          Contáctanos
-        </h3>
-        <p class="text-sm sm:text-base text-slate-200 mb-4">
-          ¿Quieres conocer más sobre la IEP Hiram Bingham, matrícula o
-          pensiones? Escríbenos y estaremos encantados de atenderte.
-        </p>
-        <ul class="text-sm text-slate-200 space-y-2">
-          <li><strong>Teléfono:</strong> (01) 123 4567</li>
-          <li><strong>WhatsApp:</strong> +51 999 999 999</li>
-          <li><strong>Correo:</strong> informes@iep-hirambingham.edu.pe</li>
-          <li><strong>Dirección:</strong> Calle Ejemplo 123, Distrito, Lima – Perú</li>
-        </ul>
-      </div>
+    <!-- Niveles Académicos -->
+    <section id="niveles" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="section-title text-3xl md:text-4xl font-bold text-blue-900 inline-block">Niveles Educativos</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto mt-4">Acompañamos a nuestros estudiantes desde los primeros años hasta su preparación para la educación superior.</p>
+            </div>
 
-      <form class="fade-in bg-slate-800/70 border border-slate-700 rounded-2xl p-5 space-y-3 text-sm" id="contactForm">
-        <div>
-          <label class="block mb-1 text-slate-200">Nombre y apellido</label>
-          <input type="text" required
-                 class="w-full rounded-lg px-3 py-2 bg-slate-900/60 border border-slate-600 focus:outline-none focus:ring-2 focus:ring-hibAccent text-sm">
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Inicial -->
+                <div class="level-card bg-white rounded-2xl shadow-lg overflow-hidden fade-in">
+                    <div class="bg-gradient-to-r from-blue-700 to-blue-900 p-6 text-white">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-2xl font-bold">Inicial</h3>
+                            <div class="level-icon text-3xl">
+                                <i class="fas fa-child"></i>
+                            </div>
+                        </div>
+                        <p class="text-blue-200">3, 4 y 5 años</p>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-700 mb-4">
+                            Un espacio seguro y estimulante donde los niños exploran, juegan y desarrollan habilidades socioemocionales fundamentales para su crecimiento integral.
+                        </p>
+                        <ul class="space-y-2 text-gray-600 mb-6">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Psicomotricidad y expresión artística
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Estimulación del lenguaje y comunicación
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Juego libre y guiado
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Iniciación al inglés de forma lúdica
+                            </li>
+                        </ul>
+                        <a href="#contacto" class="block text-center py-2 px-4 bg-blue-100 text-blue-900 font-medium rounded-lg hover:bg-blue-200 transition">
+                            Más información
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Primaria -->
+                <div class="level-card bg-white rounded-2xl shadow-lg overflow-hidden fade-in">
+                    <div class="bg-gradient-to-r from-blue-800 to-blue-700 p-6 text-white">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-2xl font-bold">Primaria</h3>
+                            <div class="level-icon text-3xl">
+                                <i class="fas fa-book-open"></i>
+                            </div>
+                        </div>
+                        <p class="text-blue-200">1.º a 6.º grado</p>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-700 mb-4">
+                            Fortalecemos las bases académicas, el pensamiento crítico y la creatividad, con proyectos que conectan el aprendizaje con la realidad cotidiana.
+                        </p>
+                        <ul class="space-y-2 text-gray-600 mb-6">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Lectura comprensiva y producción de textos
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Matemática aplicada y resolución de problemas
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Inglés intensivo y uso responsable de TIC
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Ciencias sociales y naturales con experimentación
+                            </li>
+                        </ul>
+                        <a href="#contacto" class="block text-center py-2 px-4 bg-blue-100 text-blue-900 font-medium rounded-lg hover:bg-blue-200 transition">
+                            Más información
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Secundaria -->
+                <div class="level-card bg-white rounded-2xl shadow-lg overflow-hidden fade-in">
+                    <div class="bg-gradient-to-r from-blue-900 to-blue-800 p-6 text-white">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-2xl font-bold">Secundaria</h3>
+                            <div class="level-icon text-3xl">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                        </div>
+                        <p class="text-blue-200">1.º a 5.º de secundaria</p>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-700 mb-4">
+                            Acompañamos a los estudiantes en la construcción de su proyecto de vida, reforzando competencias científicas, humanísticas y digitales para su futuro.
+                        </p>
+                        <ul class="space-y-2 text-gray-600 mb-6">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Preparación preuniversitaria y orientación vocacional
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Proyectos de investigación e innovación
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Desarrollo de liderazgo y habilidades blandas
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Programas de intercambio cultural (virtual)
+                            </li>
+                        </ul>
+                        <a href="#contacto" class="block text-center py-2 px-4 bg-blue-100 text-blue-900 font-medium rounded-lg hover:bg-blue-200 transition">
+                            Más información
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div>
-          <label class="block mb-1 text-slate-200">Correo electrónico</label>
-          <input type="email" required
-                 class="w-full rounded-lg px-3 py-2 bg-slate-900/60 border border-slate-600 focus:outline-none focus:ring-2 focus:ring-hibAccent text-sm">
+    </section>
+
+    <!-- Vida en el Campus -->
+    <section id="campus" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="section-title text-3xl md:text-4xl font-bold text-blue-900 inline-block">Vida en el Campus</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto mt-4">Más allá de las aulas: un espacio para el desarrollo integral de nuestros estudiantes.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <div class="fade-in card-hover bg-gray-50 rounded-2xl p-6">
+                    <div class="text-center mb-4">
+                        <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-100 text-blue-900 text-2xl mb-4">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-blue-900 mb-2">Robótica y Tecnología</h4>
+                        <p class="text-gray-600">Talleres de programación, robótica y desarrollo de aplicaciones para fomentar la innovación tecnológica.</p>
+                    </div>
+                </div>
+
+                <div class="fade-in card-hover bg-gray-50 rounded-2xl p-6">
+                    <div class="text-center mb-4">
+                        <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-100 text-blue-900 text-2xl mb-4">
+                            <i class="fas fa-futbol"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-blue-900 mb-2">Deportes y Competencias</h4>
+                        <p class="text-gray-600">Fútbol, vóley, básquet y atletismo. Participamos en intercolegiales locales y regionales.</p>
+                    </div>
+                </div>
+
+                <div class="fade-in card-hover bg-gray-50 rounded-2xl p-6">
+                    <div class="text-center mb-4">
+                        <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-100 text-blue-900 text-2xl mb-4">
+                            <i class="fas fa-theater-masks"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-blue-900 mb-2">Arte y Cultura</h4>
+                        <p class="text-gray-600">Teatro, música, danza y artes visuales. Presentaciones anuales y participación en festivales locales.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gallery Preview -->
+            <div class="fade-in">
+                <h3 class="text-2xl font-bold text-blue-900 mb-6 text-center">Galería de Nuestras Actividades</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="rounded-xl overflow-hidden shadow-md">
+                        <div class="h-48 bg-gradient-to-r from-blue-400 to-blue-600 flex items-center justify-center text-white">
+                            <i class="fas fa-graduation-cap text-4xl"></i>
+                        </div>
+                        <div class="p-4 bg-white">
+                            <p class="font-medium text-center">Ceremonia de Graduación</p>
+                        </div>
+                    </div>
+                    <div class="rounded-xl overflow-hidden shadow-md">
+                        <div class="h-48 bg-gradient-to-r from-green-400 to-green-600 flex items-center justify-center text-white">
+                            <i class="fas fa-flask text-4xl"></i>
+                        </div>
+                        <div class="p-4 bg-white">
+                            <p class="font-medium text-center">Feria de Ciencias</p>
+                        </div>
+                    </div>
+                    <div class="rounded-xl overflow-hidden shadow-md">
+                        <div class="h-48 bg-gradient-to-r from-yellow-400 to-yellow-600 flex items-center justify-center text-white">
+                            <i class="fas fa-music text-4xl"></i>
+                        </div>
+                        <div class="p-4 bg-white">
+                            <p class="font-medium text-center">Festival de Talentos</p>
+                        </div>
+                    </div>
+                    <div class="rounded-xl overflow-hidden shadow-md">
+                        <div class="h-48 bg-gradient-to-r from-red-400 to-red-600 flex items-center justify-center text-white">
+                            <i class="fas fa-medal text-4xl"></i>
+                        </div>
+                        <div class="p-4 bg-white">
+                            <p class="font-medium text-center">Competencias Deportivas</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div>
-          <label class="block mb-1 text-slate-200">Mensaje</label>
-          <textarea rows="4" required
-                    class="w-full rounded-lg px-3 py-2 bg-slate-900/60 border border-slate-600 focus:outline-none focus:ring-2 focus:ring-hibAccent text-sm"></textarea>
+    </section>
+
+    <!-- Admisiones -->
+    <section id="admisiones" class="py-16 bg-gradient-to-r from-blue-900 to-blue-800 text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="section-title text-3xl md:text-4xl font-bold inline-block">Proceso de Admisión 2024</h2>
+                <p class="text-blue-200 max-w-3xl mx-auto mt-4">Inscríbete y forma parte de nuestra comunidad educativa. Cupos limitados disponibles.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="fade-in">
+                    <h3 class="text-2xl font-bold mb-6">Pasos para la Admisión</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-yellow-500 text-blue-900 flex items-center justify-center font-bold mr-4">1</div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-1">Solicitud de Información</h4>
+                                <p class="text-blue-200">Completa el formulario de contacto o visítanos para conocer nuestro proyecto educativo.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-yellow-500 text-blue-900 flex items-center justify-center font-bold mr-4">2</div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-1">Evaluación Diagnóstica</h4>
+                                <p class="text-blue-200">Evaluación del estudiante para conocer su nivel académico y socioemocional.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-yellow-500 text-blue-900 flex items-center justify-center font-bold mr-4">3</div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-1">Entrevista Familiar</h4>
+                                <p class="text-blue-200">Conversación con los padres para conocer expectativas y alinear objetivos educativos.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-yellow-500 text-blue-900 flex items-center justify-center font-bold mr-4">4</div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-1">Matrícula</h4>
+                                <p class="text-blue-200">Entrega de documentación y formalización de la matrícula para el año escolar.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 p-6 bg-white/10 rounded-xl">
+                        <h4 class="text-xl font-bold mb-2">Documentación Requerida</h4>
+                        <ul class="space-y-1 text-blue-200">
+                            <li><i class="fas fa-file-alt mr-2"></i> Partida de nacimiento (copia)</li>
+                            <li><i class="fas fa-file-alt mr-2"></i> DNI del estudiante y padres (copia)</li>
+                            <li><i class="fas fa-file-alt mr-2"></i> Constancia de conducta y notas anteriores</li>
+                            <li><i class="fas fa-file-alt mr-2"></i> Fotos tamaño carnet</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="fade-in">
+                    <div class="bg-white rounded-2xl p-6 text-gray-800 shadow-xl">
+                        <h3 class="text-2xl font-bold text-blue-900 mb-6">Solicita Información</h3>
+                        <form id="admissionForm" class="space-y-4">
+                            <div>
+                                <label class="block text-gray-700 mb-2">Nombres y Apellidos *</label>
+                                <input type="text" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none">
+                            </div>
+                            
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-gray-700 mb-2">Teléfono *</label>
+                                    <input type="tel" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none">
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 mb-2">Correo Electrónico *</label>
+                                    <input type="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none">
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-gray-700 mb-2">Nivel de Interés *</label>
+                                <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none">
+                                    <option>Seleccione un nivel</option>
+                                    <option>Inicial (3-5 años)</option>
+                                    <option>Primaria (1°-6° grado)</option>
+                                    <option>Secundaria (1°-5° año)</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-gray-700 mb-2">Mensaje o Consulta</label>
+                                <textarea rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="w-full py-3 btn-gold rounded-lg font-bold text-lg mt-4">
+                                Enviar Solicitud
+                            </button>
+                            
+                            <p class="text-sm text-gray-500 text-center mt-4">
+                                Nos pondremos en contacto contigo en un plazo máximo de 48 horas.
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-        <button type="submit"
-                class="w-full mt-2 py-2.5 rounded-full bg-hibAccent text-slate-900 font-semibold hover:bg-amber-300 transition">
-          Enviar mensaje
-        </button>
-        <p id="formMsg" class="text-xs text-emerald-300 mt-2 hidden">
-          ¡Gracias por escribirnos! Nos pondremos en contacto contigo pronto.
-        </p>
-      </form>
-    </div>
-  </section>
+    </section>
 
-  <!-- FOOTER -->
-  <footer class="bg-black text-slate-400 text-xs py-4">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-2">
-      <p>© <span id="year"></span> IEP Hiram Bingham. Todos los derechos reservados.</p>
-      <p class="text-[11px]">Educación con elegancia, calidez y excelencia.</p>
-    </div>
-  </footer>
+    <!-- Testimonios -->
+    <section id="testimonios" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="section-title text-3xl md:text-4xl font-bold text-blue-900 inline-block">Testimonios</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto mt-4">Lo que dicen padres de familia, estudiantes y egresados sobre su experiencia en el Colegio Hiram Bingham.</p>
+            </div>
 
-  <!-- JS: menú móvil, animaciones y formulario -->
-  <script>
-    // Menú móvil
-    const btnMenu = document.getElementById("btnMenu");
-    const mobileMenu = document.getElementById("mobileMenu");
-    btnMenu.addEventListener("click", () => {
-      mobileMenu.classList.toggle("hidden");
-    });
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="fade-in testimonial-card rounded-xl p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-r from-blue-500 to-blue-700 flex items-center justify-center text-white font-bold text-xl mr-4">
+                            M
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-blue-900">María Fernández</h4>
+                            <p class="text-sm text-gray-500">Madre de familia - Primaria</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 italic">
+                        "Como madre, valoro mucho el acompañamiento personalizado que brindan a cada estudiante. Mi hija ha desarrollado no solo conocimientos, sino también seguridad en sí misma y valores sólidos."
+                    </p>
+                    <div class="flex text-yellow-400 mt-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
 
-    // Año automático en el footer
-    document.getElementById("year").textContent = new Date().getFullYear();
+                <div class="fade-in testimonial-card rounded-xl p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-r from-blue-500 to-blue-700 flex items-center justify-center text-white font-bold text-xl mr-4">
+                            J
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-blue-900">José Pérez</h4>
+                            <p class="text-sm text-gray-500">Egresado - Ingeniería</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 italic">
+                        "La formación que recibí en el Hiram Bingham me dio las bases para ingresar a la universidad y enfrentar los retos académicos. Los proyectos de investigación en secundaria fueron clave para mi vocación."
+                    </p>
+                    <div class="flex text-yellow-400 mt-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
 
-    // Animación "fade-in" al hacer scroll
-    const faders = document.querySelectorAll(".fade-in");
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("show");
-          }
+                <div class="fade-in testimonial-card rounded-xl p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-r from-blue-500 to-blue-700 flex items-center justify-center text-white font-bold text-xl mr-4">
+                            C
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-blue-900">Carlos Rodríguez</h4>
+                            <p class="text-sm text-gray-500">Padre de familia - Secundaria</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 italic">
+                        "El balance entre excelencia académica y formación en valores es lo que más destaco. Los profesores están siempre disponibles y la comunicación con la familia es constante y transparente."
+                    </p>
+                    <div class="flex text-yellow-400 mt-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Facebook Review CTA -->
+            <div class="mt-12 bg-white rounded-2xl p-8 shadow-lg text-center fade-in">
+                <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-100 text-blue-900 text-2xl mb-4">
+                    <i class="fab fa-facebook-f"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-blue-900 mb-3">Sé el primero en dejar tu opinión</h3>
+                <p class="text-gray-600 max-w-2xl mx-auto mb-6">
+                    Visita nuestra página de Facebook y comparte tu experiencia con el Colegio Hiram Bingham VMT. Tu testimonio ayuda a otras familias a tomar la mejor decisión educativa.
+                </p>
+                <a href="https://facebook.com" target="_blank" class="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition">
+                    <i class="fab fa-facebook-f mr-3"></i>
+                    Visitar Facebook del Colegio
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="section-title text-3xl md:text-4xl font-bold text-blue-900 inline-block">Contáctanos</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto mt-4">Estamos aquí para responder todas tus preguntas y brindarte la información que necesitas.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="fade-in">
+                    <h3 class="text-2xl font-bold text-blue-900 mb-6">Información de Contacto</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-lg mr-4">
+                                <i class="fas fa-map-marker-alt text-blue-900 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-blue-900 mb-1">Dirección</h4>
+                                <p class="text-gray-700">Av. Principal 123, Villa María del Triunfo, Lima - Perú</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-lg mr-4">
+                                <i class="fas fa-phone-alt text-blue-900 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-blue-900 mb-1">Teléfonos</h4>
+                                <p class="text-gray-700">(01) 123-4567</p>
+                                <p class="text-gray-700">+51 999 999 999 (WhatsApp)</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-lg mr-4">
+                                <i class="fas fa-envelope text-blue-900 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-blue-900 mb-1">Correo Electrónico</h4>
+                                <p class="text-gray-700">informes@colegiohirambingham.edu.pe</p>
+                                <p class="text-gray-700">admisiones@colegiohirambingham.edu.pe</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-lg mr-4">
+                                <i class="fas fa-clock text-blue-900 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-blue-900 mb-1">Horario de Atención</h4>
+                                <p class="text-gray-700">Lunes a Viernes: 7:30 am - 5:00 pm</p>
+                                <p class="text-gray-700">Sábados: 8:00 am - 1:00 pm (solo durante proceso de admisión)</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h4 class="text-xl font-bold text-blue-900 mb-4">Síguenos en Redes Sociales</h4>
+                        <div class="flex space-x-4">
+                            <a href="https://facebook.com" target="_blank" class="w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center text-xl hover:bg-blue-700 transition">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://instagram.com" target="_blank" class="w-12 h-12 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 text-white flex items-center justify-center text-xl hover:opacity-90 transition">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://youtube.com" target="_blank" class="w-12 h-12 rounded-full bg-red-600 text-white flex items-center justify-center text-xl hover:bg-red-700 transition">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="fade-in">
+                    <div class="bg-gray-50 rounded-2xl p-6 shadow-lg">
+                        <h3 class="text-2xl font-bold text-blue-900 mb-6">Envíanos un Mensaje</h3>
+                        <form id="contactForm" class="space-y-4">
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-gray-700 mb-2">Nombres *</label>
+                                    <input type="text" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none">
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 mb-2">Apellidos *</label>
+                                    <input type="text" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none">
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-gray-700 mb-2">Correo Electrónico *</label>
+                                <input type="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-gray-700 mb-2">Asunto *</label>
+                                <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none">
+                                    <option>Seleccione un asunto</option>
+                                    <option>Información sobre admisiones</option>
+                                    <option>Consulta académica</option>
+                                    <option>Información sobre pensiones</option>
+                                    <option>Visita al colegio</option>
+                                    <option>Otro</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-gray-700 mb-2">Mensaje *</label>
+                                <textarea rows="5" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="w-full py-3 btn-gold rounded-lg font-bold text-lg mt-2">
+                                <i class="fas fa-paper-plane mr-2"></i>
+                                Enviar Mensaje
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Map -->
+            <div class="mt-12 fade-in">
+                <div class="bg-gradient-to-r from-blue-900 to-blue-800 rounded-2xl p-1">
+                    <div class="bg-white rounded-xl p-6">
+                        <h3 class="text-2xl font-bold text-blue-900 mb-6 text-center">Nuestra Ubicación en Villa María del Triunfo</h3>
+                        <div class="h-64 bg-gradient-to-r from-blue-400 to-blue-600 rounded-lg flex items-center justify-center text-white text-center">
+                            <div>
+                                <i class="fas fa-map-marked-alt text-4xl mb-4"></i>
+                                <p class="text-xl font-bold">Av. Principal 123, VMT</p>
+                                <p class="text-blue-100">A una cuadra del Parque Central</p>
+                            </div>
+                        </div>
+                        <p class="text-center text-gray-600 mt-4">
+                            <i class="fas fa-bus mr-2"></i>
+                            Accesible por varias líneas de transporte público. Contamos con estacionamiento para padres.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-blue-900 text-white pt-12 pb-6">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-r from-yellow-400 to-yellow-500 flex items-center justify-center text-blue-900 text-xl font-bold">
+                            HB
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold">Colegio Hiram Bingham</h3>
+                            <p class="text-sm text-blue-200">Villa María del Triunfo</p>
+                        </div>
+                    </div>
+                    <p class="text-blue-200 text-sm">
+                        Institución Educativa Privada con más de 25 años formando líderes con valores en el distrito de Villa María del Triunfo.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Enlaces Rápidos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#inicio" class="text-blue-200 hover:text-white transition">Inicio</a></li>
+                        <li><a href="#nosotros" class="text-blue-200 hover:text-white transition">Nosotros</a></li>
+                        <li><a href="#niveles" class="text-blue-200 hover:text-white transition">Niveles Académicos</a></li>
+                        <li><a href="#admisiones" class="text-blue-200 hover:text-white transition">Admisiones</a></li>
+                        <li><a href="#contacto" class="text-blue-200 hover:text-white transition">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Niveles Educativos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#niveles" class="text-blue-200 hover:text-white transition">Educación Inicial</a></li>
+                        <li><a href="#niveles" class="text-blue-200 hover:text-white transition">Educación Primaria</a></li>
+                        <li><a href="#niveles" class="text-blue-200 hover:text-white transition">Educación Secundaria</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Contáctanos</h4>
+                    <ul class="space-y-2 text-blue-200">
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt mr-3 mt-1"></i>
+                            <span>(01) 123-4567</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mr-3 mt-1"></i>
+                            <span>informes@colegiohirambingham.edu.pe</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mr-3 mt-1"></i>
+                            <span>Av. Principal 123, VMT, Lima</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-blue-800 pt-6 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-blue-200 text-sm">
+                    © <span id="currentYear"></span> Colegio Hiram Bingham VMT. Todos los derechos reservados.
+                </p>
+                <p class="text-blue-200 text-sm mt-2 md:mt-0">
+                    Código de colegio: 123456789 | UGEL 01
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('mobileMenuButton').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
         });
-      },
-      { threshold: 0.15 }
-    );
-    faders.forEach(el => observer.observe(el));
 
-    // Mensaje simple del formulario (solo front-end)
-    const contactForm = document.getElementById("contactForm");
-    const formMsg = document.getElementById("formMsg");
-    contactForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-      formMsg.classList.remove("hidden");
-      contactForm.reset();
-    });
-  </script>
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobileMenu').classList.add('hidden');
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Form submission
+        document.getElementById('admissionForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('¡Gracias por tu interés! Nos pondremos en contacto contigo en un plazo máximo de 48 horas.');
+            this.reset();
+        });
+
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Mensaje enviado correctamente. Te responderemos a la brevedad posible.');
+            this.reset();
+        });
+
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Animated counters
+        function animateCounter(element, target, duration) {
+            let start = 0;
+            const increment = target / (duration / 16); // 60fps
+            const timer = setInterval(() => {
+                start += increment;
+                if(start >= target) {
+                    element.textContent = target + (element.dataset.target === '100' ? '%' : '+');
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(start) + (element.dataset.target === '100' ? '%' : '+');
+                }
+            }, 16);
+        }
+
+        // Fade-in animation on scroll
+        function checkFadeIn() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if(elementTop < windowHeight - 100) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        // Initialize animations when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate counters
+            const counters = document.querySelectorAll('.stats-counter');
+            counters.forEach(counter => {
+                const target = parseInt(counter.dataset.target);
+                animateCounter(counter, target, 2000);
+            });
+            
+            // Check fade-in elements
+            checkFadeIn();
+            
+            // Add scroll event listener for fade-in
+            window.addEventListener('scroll', checkFadeIn);
+            
+            // Add active class to nav links based on scroll position
+            function setActiveNavLink() {
+                const sections = document.querySelectorAll('section[id]');
+                const navLinks = document.querySelectorAll('header nav a');
+                
+                let currentSection = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 100;
+                    const sectionHeight = section.clientHeight;
+                    if(scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                        currentSection = section.getAttribute('id');
+                    }
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('text-blue-900', 'font-bold');
+                    if(link.getAttribute('href') === `#${currentSection}`) {
+                        link.classList.add('text-blue-900', 'font-bold');
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', setActiveNavLink);
+        });
+
+        // Sticky header with shadow on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if(window.scrollY > 50) {
+                header.classList.add('shadow-lg');
+                header.classList.add('bg-white');
+            } else {
+                header.classList.remove('shadow-lg');
+            }
+        });
+    </script>
 </body>
 </html>
